@@ -60,10 +60,10 @@ workableFun <- function(plateFileVariable) {
     } else (print("OK"))
   }
   for(i in 1:nrow(workableDf2)){
-    if(workableDf2$Target [i] == "CNTNAP2.1"){
-      workableDf2$Target [i] <- "CNTNAP2"
-    } else if(workableDf2$Target [i] == "BTG4.1"){
-      workableDf2$Target [i] <- "BTG4"
+    if(workableDf2$Target [i] == "Target1"){
+      workableDf2$Target [i] <- "Target1"
+    } else if(workableDf2$Target [i] == "Target2"){
+      workableDf2$Target [i] <- "Target2"
     }
   }
   return(workableDf2)
@@ -225,9 +225,3 @@ freezePane(XL, sheet = 1, firstRow = TRUE, firstCol = TRUE)
 writeDataTable(XL, sheet = 1, AllPlates)
 
 openxlsx::saveWorkbook(XL, file = file.path(folder_path, output_name))
-
-## Stats? ##
-head(AllPlates)
-stat.test <- AllPlates %>%
-  t_test(Inv_dCt ~ StatGroup) %>%
-  add_significance()
